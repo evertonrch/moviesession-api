@@ -13,9 +13,15 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>cine-api</name>
 	<description>Projeto de controle de sesões de cinema com Spring Boot</description>
+
 	<properties>
 		<java.version>17</java.version>
+		<db.url>jdbc:mysql://localhost:3306/cineapp_db</db.url>
+		<db.user>${env.USER}</db.user>
+		<!--suppress UnresolvedMavenProperty -->
+		<db.passwd>${env.PASSWD_DB}</db.passwd>
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -37,7 +43,6 @@
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-mysql</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -61,6 +66,15 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<configuration>
+					<url>${db.url}</url>
+					<user>${db.user}</user>
+					<password>${db.passwd}</password>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
