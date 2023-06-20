@@ -1,0 +1,5 @@
+CREATE TABLE tb_sala (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    descricao VARCHAR(150),
+    total_assentos TINYINT DEFAULT 30
+) DEFAULT CHARACTER SET utf8mb4;

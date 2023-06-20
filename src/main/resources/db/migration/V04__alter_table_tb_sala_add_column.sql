@@ -1,0 +1,1 @@
+ALTER TABLE tb_sala ADD COLUMN ocupados TINYINT(30);
